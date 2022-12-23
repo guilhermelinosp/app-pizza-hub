@@ -1,11 +1,5 @@
 import React from 'react'
-import {
-	Text,
-	TouchableOpacity,
-	SafeAreaView,
-	View,
-	TextInput
-} from 'react-native'
+import { Text, TouchableOpacity, SafeAreaView, View, TextInput } from 'react-native'
 import { AuthContext } from '../../contexts/AuthContext'
 import { useNavigation } from '@react-navigation/native'
 import { ParamsList } from '../../routes/AppRouter'

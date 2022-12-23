@@ -49,15 +49,11 @@ export function Order() {
 
 	const [modalCategoryVisible, setModalCategoryVisible] = useState(false)
 	const [category, setCategory] = useState<CategoryProps[] | []>([])
-	const [categorySelected, setCategorySelected] = useState<
-		CategoryProps | undefined
-	>()
+	const [categorySelected, setCategorySelected] = useState<CategoryProps | undefined>()
 
 	const [modalProductVisible, setModalProductVisible] = useState(false)
 	const [products, setProducts] = useState<ProductProps[] | []>([])
-	const [productSelected, setProductSelected] = useState<
-		ProductProps | undefined
-	>()
+	const [productSelected, setProductSelected] = useState<ProductProps | undefined>()
 
 	const [amount, setAmount] = useState('1')
 	const [items, setItems] = useState<ItemProps[]>([])
@@ -131,7 +127,7 @@ export function Order() {
 				amount: amount
 			}
 
-			setItems(oldArray => [...oldArray, item])
+			setItems((oldArray) => [...oldArray, item])
 		} catch (err) {
 			console.log(`handleAddItem: ${err}`)
 		}
@@ -141,7 +137,7 @@ export function Order() {
 		try {
 			await api.delete(`/items/${item_id}`)
 
-			setItems(oldArray => oldArray.filter(item => item.id !== item_id))
+			setItems((oldArray) => oldArray.filter((item) => item.id !== item_id))
 		} catch (err) {
 			console.log(`handleDeleteItem: ${err}`)
 		}
@@ -171,19 +167,13 @@ export function Order() {
 
 			<View style={styles.content}>
 				{category.length !== 0 && (
-					<TouchableOpacity
-						style={styles.input}
-						onPress={() => setModalCategoryVisible(true)}
-					>
+					<TouchableOpacity style={styles.input} onPress={() => setModalCategoryVisible(true)}>
 						<Text style={styles.titleBody}>{categorySelected?.name}</Text>
 					</TouchableOpacity>
 				)}
 
 				{products.length !== 0 && (
-					<TouchableOpacity
-						style={styles.input}
-						onPress={() => setModalProductVisible(true)}
-					>
+					<TouchableOpacity style={styles.input} onPress={() => setModalProductVisible(true)}>
 						<Text style={styles.titleBody}>{productSelected?.name}</Text>
 					</TouchableOpacity>
 				)}
@@ -204,10 +194,7 @@ export function Order() {
 					</TouchableOpacity>
 
 					<TouchableOpacity
-						style={[
-							styles.buttonActionConfirm,
-							{ opacity: items.length === 0 ? 0.3 : 1 }
-						]}
+						style={[styles.buttonActionConfirm, { opacity: items.length === 0 ? 0.3 : 1 }]}
 						disabled={items.length === 0}
 						onPress={handleFinishOrder}
 					>
@@ -220,17 +207,11 @@ export function Order() {
 				showsVerticalScrollIndicator={false}
 				style={styles.list}
 				data={items}
-				keyExtractor={item => item.id}
-				renderItem={({ item }) => (
-					<ListItems data={item} deleteItem={handleDeleteItem} />
-				)}
+				keyExtractor={(item) => item.id}
+				renderItem={({ item }) => <ListItems data={item} deleteItem={handleDeleteItem} />}
 			/>
 
-			<Modal
-				transparent={true}
-				visible={modalCategoryVisible}
-				animationType="none"
-			>
+			<Modal transparent={true} visible={modalCategoryVisible} animationType="none">
 				<ModalPicker
 					handleCloseModal={() => setModalCategoryVisible(false)}
 					options={category}
@@ -238,11 +219,7 @@ export function Order() {
 				/>
 			</Modal>
 
-			<Modal
-				transparent={true}
-				visible={modalProductVisible}
-				animationType="none"
-			>
+			<Modal transparent={true} visible={modalProductVisible} animationType="none">
 				<ModalPicker
 					handleCloseModal={() => setModalProductVisible(false)}
 					options={products}

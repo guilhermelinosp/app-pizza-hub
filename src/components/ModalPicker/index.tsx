@@ -9,22 +9,14 @@ export type ModalPickerProps = {
 	handleSelect: (item: CategoryProps) => void
 }
 
-export const ModalPicker = ({
-	options,
-	handleCloseModal,
-	handleSelect
-}: ModalPickerProps) => {
+export const ModalPicker = ({ options, handleCloseModal, handleSelect }: ModalPickerProps) => {
 	function onPress(item: CategoryProps) {
 		handleSelect(item)
 		handleCloseModal()
 	}
 
 	const option = options.map((item, index) => (
-		<TouchableOpacity
-			style={styles.option}
-			key={index}
-			onPress={() => onPress(item)}
-		>
+		<TouchableOpacity style={styles.option} key={index} onPress={() => onPress(item)}>
 			<Text style={styles.optionText}>{item.name}</Text>
 		</TouchableOpacity>
 	))

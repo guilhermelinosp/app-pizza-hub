@@ -33,12 +33,8 @@ export function Finish() {
 	return (
 		<SafeAreaView style={styles.container}>
 			<View style={styles.content}>
-				<Text style={[styles.title, { fontSize: 40 }]}>
-					Deseja concluir o pedido?
-				</Text>
-				<Text style={[styles.title, { fontSize: 32 }]}>
-					Mesa {route.params.number}
-				</Text>
+				<Text style={[styles.title, { fontSize: 40 }]}>Deseja concluir o pedido?</Text>
+				<Text style={[styles.title, { fontSize: 32 }]}>Mesa {route.params.number}</Text>
 
 				<TouchableOpacity style={styles.button} onPress={handleFinish}>
 					<Text style={styles.titleButton}>Finalizar</Text>

@@ -45,10 +45,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
 	React.useEffect(() => {
 		const loadStorageData = async () => {
 			try {
-				const [user, token] = await AsyncStorage.multiGet([
-					'@pizzaHub:user',
-					'@pizzaHub:token'
-				])
+				const [user, token] = await AsyncStorage.multiGet(['@pizzaHub:user', '@pizzaHub:token'])
 
 				if (user[1] && token[1]) {
 					api.defaults.headers.Authorization = `Bearer ${token[1]}`

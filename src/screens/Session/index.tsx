@@ -34,7 +34,7 @@ export function SignIn() {
 						style={[styles.input]}
 						placeholder={'Email'}
 						value={email}
-						onChangeText={email => setEmail(email)}
+						onChangeText={(email) => setEmail(email)}
 						autoCapitalize="none"
 						keyboardType="email-address"
 					/>
@@ -43,7 +43,7 @@ export function SignIn() {
 						style={[styles.input]}
 						placeholder={'Password'}
 						value={password}
-						onChangeText={password => setPassword(password)}
+						onChangeText={(password) => setPassword(password)}
 						secureTextEntry
 					/>
 

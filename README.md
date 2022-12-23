@@ -27,7 +27,7 @@ git clone https://github.com/guilhermelinosx/app-pizza-hub.git
 - Start the Application in Development
 
 ```shell
-yarn install && yarn start:dev
+yarn install && yarn start
 ```
 
 </br>
