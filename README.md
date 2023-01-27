@@ -19,7 +19,7 @@
 - Clone this repository
 
 ```shell
-git clone https://github.com/guilhermelinos/app-pizza-hub.git
+git clone https://github.com/guilhermelinosp/app-pizza-hub.git
 ```
 
 </br>
